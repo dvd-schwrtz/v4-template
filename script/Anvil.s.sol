@@ -47,8 +47,7 @@ contract CounterScript is Script {
 
         // Additional helpers for interacting with the pool
         vm.startBroadcast();
-        (PoolModifyLiquidityTest lpRouter, PoolSwapTest swapRouter,) =
-            deployRouters(manager);
+        (PoolModifyLiquidityTest lpRouter, PoolSwapTest swapRouter,) = deployRouters(manager);
         vm.stopBroadcast();
 
         // test the lifecycle (create pool, add liquidity, swap)
@@ -66,11 +65,7 @@ contract CounterScript is Script {
 
     function deployRouters(IPoolManager manager)
         internal
-        returns (
-            PoolModifyLiquidityTest lpRouter,
-            PoolSwapTest swapRouter,
-            PoolDonateTest donateRouter
-        )
+        returns (PoolModifyLiquidityTest lpRouter, PoolSwapTest swapRouter, PoolDonateTest donateRouter)
     {
         lpRouter = new PoolModifyLiquidityTest(manager);
         swapRouter = new PoolSwapTest(manager);
