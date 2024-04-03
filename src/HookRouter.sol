@@ -395,7 +395,7 @@ contract HookRouter is BaseHook, Ownable {
         }
     }
 
-    function removeFirst20Bytes(bytes memory data) public pure returns (bytes memory) {
+    function removeFirst20Bytes(bytes memory data) internal pure returns (bytes memory) {
         if (data.length < 20) {
             return "";
         }
